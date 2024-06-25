@@ -1,0 +1,211 @@
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="width: 100%"></div>
+</div>
+<body>
+    <section class="container">
+        <div class="row">
+            <nav class="navbar ">
+                <div class="container">
+                    <a class="navbar-brand"   routerLink="/home">
+                      <img src="assets/logo.png" alt="Bootstrap" width="80" height="80">
+                    </a>
+                    
+                    <a class="navbar-brand" routerLink="/visualiser" >
+                      <img src="assets/visualiser.png" alt="Bootstrap" width="80" height="80">
+                    </a>
+                    
+                    <a class="navbar-brand" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightbot" aria-controls="offcanvasRight">
+                      <img src="assets/chatbot.png" alt="Bootstrap" width="80" height="80">
+                    </a>
+                  </div>
+            </nav>
+    
+    
+           </div>
+           <div class="row">
+            <div class="col-md-12">
+            <h1 class="text-center text-white">Welcome to Vermeg Visualiser</h1>
+            </div>
+            
+        </div>
+        <div class="world">
+            
+            <div class="section-banner">
+                <div id="star-1">
+                  <div class="curved-corner-star">
+                    <div id="curved-corner-bottomright"></div>
+                    <div id="curved-corner-bottomleft"></div>
+                  </div>
+                  <div class="curved-corner-star">
+                    <div id="curved-corner-topright"></div>
+                    <div id="curved-corner-topleft"></div>
+                  </div>
+                </div>
+              
+                <div id="star-2">
+                  <div class="curved-corner-star">
+                    <div id="curved-corner-bottomright"></div>
+                    <div id="curved-corner-bottomleft"></div>
+                  </div>
+                  <div class="curved-corner-star">
+                    <div id="curved-corner-topright"></div>
+                    <div id="curved-corner-topleft"></div>
+                  </div>
+                </div>
+              
+                <div id="star-3">
+                  <div class="curved-corner-star">
+                    <div id="curved-corner-bottomright"></div>
+                    <div id="curved-corner-bottomleft"></div>
+                  </div>
+                  <div class="curved-corner-star">
+                    <div id="curved-corner-topright"></div>
+                    <div id="curved-corner-topleft"></div>
+                  </div>
+                </div>
+              
+                <div id="star-4">
+                  <div class="curved-corner-star">
+                    <div id="curved-corner-bottomright"></div>
+                    <div id="curved-corner-bottomleft"></div>
+                  </div>
+                  <div class="curved-corner-star">
+                    <div id="curved-corner-topright"></div>
+                    <div id="curved-corner-topleft"></div>
+                  </div>
+                </div>
+              
+                <div id="star-5">
+                  <div class="curved-corner-star">
+                    <div id="curved-corner-bottomright"></div>
+                    <div id="curved-corner-bottomleft"></div>
+                  </div>
+                  <div class="curved-corner-star">
+                    <div id="curved-corner-topright"></div>
+                    <div id="curved-corner-topleft"></div>
+                  </div>
+                </div>
+              
+                <div id="star-6">
+                  <div class="curved-corner-star">
+                    <div id="curved-corner-bottomright"></div>
+                    <div id="curved-corner-bottomleft"></div>
+                  </div>
+                  <div class="curved-corner-star">
+                    <div id="curved-corner-topright"></div>
+                    <div id="curved-corner-topleft"></div>
+                  </div>
+                </div>
+              
+                <div id="star-7">
+                  <div class="curved-corner-star">
+                    <div id="curved-corner-bottomright"></div>
+                    <div id="curved-corner-bottomleft"></div>
+                  </div>
+                  <div class="curved-corner-star">
+                    <div id="curved-corner-topright"></div>
+                    <div id="curved-corner-topleft"></div>
+                  </div>
+                </div>
+              </div>
+              
+
+        </div>
+
+           <div class="row world" >
+            <div class="input-div">
+                <input class="input" name="file" type="file" (change)="onFileChange($event)" accept=".xls,.xlsx,.csv">
+              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" stroke-linejoin="round" stroke-linecap="round" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke="currentColor" class="icon"><polyline points="16 16 12 12 8 16"></polyline><line y2="21" x2="12" y1="12" x1="12"></line><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"></path><polyline points="16 16 12 12 8 16"></polyline></svg>
+              </div>    
+
+
+           </div>
+           <div class="row">
+            <div *ngFor="let sheet of sheetsData | keyvalue " class="table-wrapper">
+                <h3 class="text-danger">Extracted data</h3>
+                <div class="world">
+                    <button class="btn-23" (click)="DownloadJson()">
+                        <span class="text">Convert to Json</span>
+                        <span aria-hidden="" class="marquee">Json</span>
+                      </button>
+                      <button class="btn-23" (click)="analyser_data()">
+                        <span class="text">Analyser</span>
+                        <span aria-hidden="" class="marquee">V-Bot</span>
+                      </button>
+                     
+                </div>
+               
+                <table class="table table-dark table-striped">
+                  <tr *ngFor="let row of sheet.value">
+                    <td *ngFor="let cell of row">{{ cell }}</td>
+                  </tr>
+                </table>
+              </div>
+             
+           </div>
+
+    </section>
+    
+</body>
+<div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="width: 100%">Scrape everything</div>
+</div>
+
+<div class="dialog-box spinner" *ngIf="isLoading">
+    <div class="spinner-grow text-dark" style="width: 9rem; height: 9rem;" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-secondary" style="width: 9rem; height: 9rem;" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-white" style="width: 9rem; height: 9rem;" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+
+  <div class="offcanvas offcanvas-end" data-bs-scroll="false" data-bs-backdrop="false" tabindex="-1" id="offcanvasRightbot" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasRightLabel">
+          <img src="assets/logo.png" alt="vermeg" width="80" height="80">
+          <img src="assets/chatbot.png" alt="internet" width="80" height="80">
+      </h5>
+      
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <p>Upload your extracted data to get an analyse</p>
+      
+      <div class="world">
+  
+        <div class="input-div">
+          <input class="input" name="file" type="file" accept=".xls,.xlsx,.csv" (change)="get_data_ai($event)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" stroke-linejoin="round" stroke-linecap="round" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke="currentColor" class="icon"><polyline points="16 16 12 12 8 16"></polyline><line y2="21" x2="12" y1="12" x1="12"></line><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"></path><polyline points="16 16 12 12 8 16"></polyline></svg>
+        </div>      
+      </div>
+    </div>
+  </div>
+
+    
+<div class="modal fade" id="messagemodal" tabindex="-1" aria-labelledby="messagemodalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="messagemodalLabel">Analyse ℹ️</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <p>{{ message }}</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
